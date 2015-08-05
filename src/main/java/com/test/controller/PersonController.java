@@ -14,13 +14,9 @@ import com.test.service.PersonService;
 @Controller
 public class PersonController {
      
-    private PersonService personService;
-     
-    @Autowired(required=true)
-    public void setPersonService(PersonService ps){
-        this.personService = ps;
-    }
-    
+    @Autowired
+	private PersonService personService;     
+      
     @RequestMapping(value = {"/","/persons"}, method = RequestMethod.GET)
     public String listPersons(Model model) {
         model.addAttribute("person", new Person());

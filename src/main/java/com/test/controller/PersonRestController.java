@@ -20,17 +20,12 @@ import com.test.service.PersonService;
 @RestController
 public class PersonRestController {
 
-    private PersonService personService;
+	@Autowired
+	private PersonService personService;
 
 	public PersonService getPersonService() {
 		return personService;
-	}
-
-    @Autowired(required=true)
-    @Qualifier(value="personService")
-	public void setPersonService(PersonService personService) {
-		this.personService = personService;
-	}
+	}   
 
 	@RequestMapping(value = "/api/person/{id}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
